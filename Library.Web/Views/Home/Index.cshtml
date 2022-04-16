@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Library.Data.Models.Book>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Library</h1>
+</div>
+<ul>
+    @foreach (var book in Model)
+    {
+        <li>
+            @book.Name
+        </li>
+    }
+<h2>
+    Chyba musimy jednak zrobić tabele pierw, a potem kombinować coś z 2 tabela, jakos to polaczyć
+    Lub zostawić 2 tabele, i zakladac wtedy nowy rekord w drugiej tabeli
+</h2>
+
+
+</ul>
+
