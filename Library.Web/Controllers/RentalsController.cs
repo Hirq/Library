@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace Library.Web.Controllers
 {
+
     public class RentalsController : Controller
     {
         private readonly IRentalData db;
