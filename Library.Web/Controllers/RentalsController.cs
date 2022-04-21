@@ -1,5 +1,6 @@
 ﻿using Library.Data.Models;
 using Library.Data.Services;
+using Library.Web.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,15 +35,30 @@ namespace Library.Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            var viewModel = new RentalFormViewModel
+            {
+                Books = db.GetAllBooks().ToList()
+            };
+            return View(viewModel);
         }
         [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult Create(Rental rental)
+        public ActionResult Create(RentalFormViewModel viewModel)
         {
+            var selectBook = db.GetBook(viewModel.Book);
+            selectBook.IsRental = true;
+
+            var rental = new Rental
+            {
+                Person = viewModel.Person,
+                Date = viewModel.Date,
+                BookID = viewModel.Book
+            };
+
             if (ModelState.IsValid)
             {
                 db.Add(rental);
-                return RedirectToAction("Details", new { id = rental.Id });
+                db.UpdateBook(selectBook);
+                return RedirectToAction("Index");
             }
             return View();
         }
@@ -72,7 +88,12 @@ namespace Library.Web.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection form)
         {
+            var rental = db.Get(id);
+            var selectBook = db.GetBook(rental.BookID);
+            selectBook.IsRental = false;
+
             db.Delete(id);
+            db.UpdateBook(selectBook);
             return RedirectToAction("Index");
         }
         

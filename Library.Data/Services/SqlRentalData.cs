@@ -39,9 +39,28 @@ namespace Library.Data.Services
                    select rental;
         }
 
+        public IEnumerable<Book> GetAllBooks()
+        {
+            return from book in db.Books
+                   where book.IsRental == false
+                   select book;
+        }
+
+        public Book GetBook(int id)
+        {
+            return db.Books.FirstOrDefault(book => book.Id == id);
+        }
+
         public void Update(Rental rental)
         {
             var entry = db.Entry(rental);
+            entry.State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
+        public void UpdateBook(Book book)
+        {
+            var entry = db.Entry(book);
             entry.State = EntityState.Modified;
             db.SaveChanges();
         }

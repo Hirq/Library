@@ -13,7 +13,5 @@ namespace Library.Data.Models
         public string Autor  { get; set; }
         public BookType TypeBook { get; set; }
         public bool IsRental{ get; set; }
-        public string Person { get; set; }
-        public DateTime Date { get; set; }
     }
 }

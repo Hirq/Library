@@ -35,7 +35,7 @@
             @Html.DisplayFor(model => model.IsRental)
         </dd>
 
-        @if (Model.IsRental == true)
+        @*@if (Model.IsRental == true)
         {
             <dt>
                 @Html.DisplayNameFor(model => model.Person)
@@ -52,7 +52,7 @@
                 @Html.DisplayFor(model => model.Date)
             </dd>
         }
-    </dl>
+    </dl>*@
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()

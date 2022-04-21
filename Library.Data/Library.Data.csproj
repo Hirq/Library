@@ -145,6 +145,14 @@
     <Compile Include="Migrations\202204191826158_3.designer.cs">
       <DependentUpon>202204191826158_3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204211319563_deleteBookNameFromRental.cs" />
+    <Compile Include="Migrations\202204211319563_deleteBookNameFromRental.designer.cs">
+      <DependentUpon>202204211319563_deleteBookNameFromRental.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204211332154_upgradeBook.cs" />
+    <Compile Include="Migrations\202204211332154_upgradeBook.designer.cs">
+      <DependentUpon>202204211332154_upgradeBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BookType.cs" />
     <Compile Include="Models\Rental.cs" />
@@ -187,6 +195,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204191826158_3.resx">
       <DependentUpon>202204191826158_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204211319563_deleteBookNameFromRental.resx">
+      <DependentUpon>202204211319563_deleteBookNameFromRental.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204211332154_upgradeBook.resx">
+      <DependentUpon>202204211332154_upgradeBook.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
