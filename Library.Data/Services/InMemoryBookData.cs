@@ -43,6 +43,11 @@ namespace Library.Data.Services
             return books.OrderBy(b => b.Name);
         }
 
+        public Rental GetRental(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Book book)
         {
             var existing = Get(book.Id);

@@ -1,5 +1,6 @@
 ﻿using Library.Data.Models;
 using Library.Data.Services;
+using Library.Web.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,12 +32,25 @@ namespace Library.Web.Controllers
         }
         public ActionResult Details(int id)
         {
+            var book = db.Get(id);
+            var rental = db.GetRental(book.Id);
+            //var viewModel = new RentalFormViewModel
+            //{
+            //    //Name = book.Name,
+            //    //Autor = book.Autor,
+            //    //TypeBook = book.TypeBook,
+            //    //IsRental = book.IsRental,
+            //    Person = rental.Person,
+            //    Book = rental.BookID
+            //};
+            //return View(viewModel);
+
             var model = db.Get(id);
             if (model == null)
             {
                 return View("NotFound");
             }
-            return View(model);
+            return View(rental);
         }
         [HttpGet]
         public ActionResult Create()

@@ -3,9 +3,6 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>Library</h1>
-</div>
 <ul>
     @foreach (var book in Model)
     {
@@ -18,4 +15,12 @@
     1. Details Book jak jest IsRental == true to powinnismy pokazywać komu zostało wypożyczone.
     Wiec powinnismy w controlerze dać inny model - stworzyc ViewModel, ktory ma dostep do danych z Rentals i przesłac go do View Details
     lub spróbować w Controlerze przekazac te parametry do widoku, bez  tworzenia nowego modelu
+</h2>
+<h2>
+    2. zaczać gdzieś zapisywać ten kod, który może się przydać - do zeszytu odniesienia, nazwa zdjęcia i opis jak to zrobiliśmy
+</h2>
+
+<h2>
+    3. Do poprawnego odświeżenia strony po zmianie css należy na przeglądrace dac CTRL+R, build czy uruchomienie nowego serwera nic nie daje,
+    bo przegladarka wciąz nie odświezyła plików które pobiera - problem z pamięcią podręczną przeglądarki
 </h2>

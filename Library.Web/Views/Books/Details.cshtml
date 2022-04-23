@@ -1,5 +1,5 @@
-﻿@model Library.Data.Models.Book
-
+﻿@*@model Library.Data.Models.Book*@
+@model Library.Data.Models.Rental
 @{
     ViewBag.Title = "Details";
 }
@@ -11,30 +11,30 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Book.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.Book.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Autor)
+            @Html.DisplayNameFor(model => model.Book.Autor)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Autor)
+            @Html.DisplayFor(model => model.Book.Autor)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.IsRental)
+            @Html.DisplayNameFor(model => model.Book.IsRental)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.IsRental)
+            @Html.DisplayFor(model => model.Book.IsRental)
         </dd>
 
-        @*@if (Model.IsRental == true)
+        @if (Model.Book.IsRental == true)
         {
             <dt>
                 @Html.DisplayNameFor(model => model.Person)
@@ -50,11 +50,11 @@
             <dd>
                 @Html.DisplayFor(model => model.Date)
             </dd>
-        }*@
+        }
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Update", new { id = Model.Id }) |
+    @*@Html.ActionLink("Edit", "Update", new { id = Model.Id }) |*@
     @Html.ActionLink("Back to List", "Index")
 </p>

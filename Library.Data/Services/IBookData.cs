@@ -14,5 +14,7 @@ namespace Library.Data.Services
         void Update(Book book); 
         void Delete(int id);
 
+        Rental GetRental(int id);
+
     }
 }

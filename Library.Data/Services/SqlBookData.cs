@@ -40,6 +40,11 @@ namespace Library.Data.Services
                    select book;
         }
 
+        public Rental GetRental(int id)
+        {
+            return db.Rentals.FirstOrDefault(x => x.BookID == id);
+        }
+
         public void Update(Book book)
         {
             var entry = db.Entry(book);
