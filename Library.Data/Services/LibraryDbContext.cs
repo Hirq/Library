@@ -12,5 +12,6 @@ namespace Library.Data.Services
     {
         public DbSet<Book> Books { get; set; }
         public DbSet<Rental> Rentals { get; set; }
+        public DbSet<Restaurant> Restaurants { get; set; }
     }
 }

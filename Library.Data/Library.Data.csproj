@@ -153,16 +153,28 @@
     <Compile Include="Migrations\202204211332154_upgradeBook.designer.cs">
       <DependentUpon>202204211332154_upgradeBook.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204231527361_addRestaurantModel.cs" />
+    <Compile Include="Migrations\202204231527361_addRestaurantModel.designer.cs">
+      <DependentUpon>202204231527361_addRestaurantModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204231532069_refactorRestaurant.cs" />
+    <Compile Include="Migrations\202204231532069_refactorRestaurant.designer.cs">
+      <DependentUpon>202204231532069_refactorRestaurant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BookType.cs" />
+    <Compile Include="Models\RestaurationType.cs" />
     <Compile Include="Models\Rental.cs" />
+    <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IBookData.cs" />
     <Compile Include="Services\InMemoryBookData.cs" />
     <Compile Include="Services\IRentalData.cs" />
+    <Compile Include="Services\IRestaurantData.cs" />
     <Compile Include="Services\LibraryDbContext.cs" />
     <Compile Include="Services\SqlBookData.cs" />
     <Compile Include="Services\SqlRentalData.cs" />
+    <Compile Include="Services\SqlRestaurantData.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Book.cs" />
@@ -201,6 +213,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204211332154_upgradeBook.resx">
       <DependentUpon>202204211332154_upgradeBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204231527361_addRestaurantModel.resx">
+      <DependentUpon>202204231527361_addRestaurantModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204231532069_refactorRestaurant.resx">
+      <DependentUpon>202204231532069_refactorRestaurant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

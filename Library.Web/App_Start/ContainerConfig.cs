@@ -25,6 +25,9 @@ namespace Library.Web
             builder.RegisterType<SqlRentalData>()
             .As<IRentalData>()
             .InstancePerRequest();
+            builder.RegisterType<SqlRestaurantData>()
+            .As<IRestaurantData>()
+            .InstancePerRequest();
             builder.RegisterType<LibraryDbContext>().InstancePerRequest();
 
             var container = builder.Build();
