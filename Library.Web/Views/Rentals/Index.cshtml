@@ -1,14 +1,29 @@
-﻿@model IEnumerable<Library.Data.Models.Rental>
+﻿@*@model IEnumerable<Library.Data.Models.Rental>*@
+@model Library.Web.ViewModels.RentalFormViewModel
+
 
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Rental Model</h2>
+@{
+    int i = 0;
+    foreach (var item in Model.Books)
+    {
+        if (item.IsRental == false)
+        {
+            i++;
+        }
+    }
+    if (i >= 1)
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+}
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -23,21 +38,22 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Person)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Book.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model.Rentals)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Person)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

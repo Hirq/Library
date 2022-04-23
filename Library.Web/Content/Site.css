@@ -23,6 +23,7 @@ input,
 select,
 textarea {
     max-width: 280px;
+    color: black;
 }
 
 .navbar-inverse {

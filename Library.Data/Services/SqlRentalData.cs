@@ -33,7 +33,7 @@ namespace Library.Data.Services
             return db.Rentals.FirstOrDefault(rental => rental.Id == id);
         }
 
-        public IEnumerable<Rental> GetAll()
+        public IEnumerable<Rental> GetAllRentals()
         {
             return from rental in db.Rentals
                    select rental;

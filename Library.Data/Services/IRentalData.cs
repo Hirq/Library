@@ -9,7 +9,7 @@ namespace Library.Data.Services
 {
     public interface IRentalData
     {
-        IEnumerable<Rental> GetAll();
+        IEnumerable<Rental> GetAllRentals();
         Rental Get(int id);
         void Add(Rental rental);
         void Update(Rental rental);

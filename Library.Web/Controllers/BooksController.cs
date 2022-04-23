@@ -34,21 +34,16 @@ namespace Library.Web.Controllers
         {
             var book = db.Get(id);
             var rental = db.GetRental(book.Id);
-            //var viewModel = new RentalFormViewModel
-            //{
-            //    //Name = book.Name,
-            //    //Autor = book.Autor,
-            //    //TypeBook = book.TypeBook,
-            //    //IsRental = book.IsRental,
-            //    Person = rental.Person,
-            //    Book = rental.BookID
-            //};
-            //return View(viewModel);
-
-            var model = db.Get(id);
-            if (model == null)
+            if (book == null)
             {
                 return View("NotFound");
+            }
+            if (rental == null)
+            {
+                rental = new Rental
+                {
+                    Book = book,
+                };
             }
             return View(rental);
         }
@@ -64,7 +59,7 @@ namespace Library.Web.Controllers
             if(ModelState.IsValid)
             {
                 db.Add(book);
-                return RedirectToAction("Details", new { id = book.Id });
+                return RedirectToAction("Index");
             }
             return View("Index");
         }

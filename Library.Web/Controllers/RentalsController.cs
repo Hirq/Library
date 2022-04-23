@@ -19,8 +19,14 @@ namespace Library.Web.Controllers
         }
         public ActionResult Index()
         {
-            var model = db.GetAll();
-            return View(model);
+            var viewModel = new RentalFormViewModel
+            {
+                Books = db.GetAllBooks().ToList(),
+                Rentals = db.GetAllRentals().ToList(),
+            };
+            return View(viewModel);
+            //var model = db.GetAllRentals();
+            //return View(model);
         }        
 
         public ActionResult Details(int id)

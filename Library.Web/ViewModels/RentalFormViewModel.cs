@@ -13,5 +13,6 @@ namespace Library.Web.ViewModels
 
         public int Book { get; set; }
         public IEnumerable<Book> Books { get; set; }
+        public IEnumerable<Rental> Rentals { get; set; } 
     }
 }

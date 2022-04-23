@@ -3,14 +3,6 @@
     ViewBag.Title = "Home Page";
 }
 
-<ul>
-    @foreach (var book in Model)
-    {
-        <li>
-            @book.Name
-        </li>
-    }
-</ul>
 <h2>
     1. Details Book jak jest IsRental == true to powinnismy pokazywać komu zostało wypożyczone.
     Wiec powinnismy w controlerze dać inny model - stworzyc ViewModel, ktory ma dostep do danych z Rentals i przesłac go do View Details
