@@ -46,6 +46,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
@@ -161,18 +167,25 @@
     <Compile Include="Migrations\202204231532069_refactorRestaurant.designer.cs">
       <DependentUpon>202204231532069_refactorRestaurant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204261315078_OpionionModel.cs" />
+    <Compile Include="Migrations\202204261315078_OpionionModel.designer.cs">
+      <DependentUpon>202204261315078_OpionionModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BookType.cs" />
+    <Compile Include="Models\Opinion.cs" />
     <Compile Include="Models\RestaurationType.cs" />
     <Compile Include="Models\Rental.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IBookData.cs" />
     <Compile Include="Services\InMemoryBookData.cs" />
+    <Compile Include="Services\IOpinionData.cs" />
     <Compile Include="Services\IRentalData.cs" />
     <Compile Include="Services\IRestaurantData.cs" />
     <Compile Include="Services\LibraryDbContext.cs" />
     <Compile Include="Services\SqlBookData.cs" />
+    <Compile Include="Services\SqlOpinionData.cs" />
     <Compile Include="Services\SqlRentalData.cs" />
     <Compile Include="Services\SqlRestaurantData.cs" />
   </ItemGroup>
@@ -219,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204231532069_refactorRestaurant.resx">
       <DependentUpon>202204231532069_refactorRestaurant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204261315078_OpionionModel.resx">
+      <DependentUpon>202204261315078_OpionionModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

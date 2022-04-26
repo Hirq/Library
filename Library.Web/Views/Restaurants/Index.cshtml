@@ -34,8 +34,7 @@
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
         <td>
-            @*@Html.ActionLink("Add opinion", "IndexOpinion", new { id = item.Id })*@
-            @Html.ActionLink("Add opinion", "IndexOpinion")
+            @Html.ActionLink("Opinion", "IndexOpinion", new { id = item.Id })
         </td>
     </tr>
 }

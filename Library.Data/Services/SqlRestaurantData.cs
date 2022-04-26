@@ -41,6 +41,13 @@ namespace Library.Data.Services
                    select Restaurant;
         }
 
+        public IEnumerable<Opinion> GetAllOpinions(int id)
+        {
+            return from opinion in db.Opinions
+                   where opinion.RestaurantId == id
+                   select opinion;
+        }
+
         public void Update(Restaurant restaurant)
         {
             var entry = db.Entry(restaurant);

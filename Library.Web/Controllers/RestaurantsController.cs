@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Library.Web.ViewModels;
 
 namespace Library.Web.Controllers
 {
@@ -78,9 +79,13 @@ namespace Library.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult IndexOpinion()
+        public ActionResult IndexOpinion(int id)
         {
-            return View("IndexOpinion");
+            var viewModel = new OpinionFormViewModel
+            {
+                Opinions = db.GetAllOpinions(id).ToList(),
+            };
+            return View(viewModel);
         }
     }
 }

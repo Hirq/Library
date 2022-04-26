@@ -14,5 +14,7 @@ namespace Library.Data.Services
         void Add(Restaurant restaurant);
         void Update(Restaurant restaurant);
         void Delete(int id);
+
+        IEnumerable<Opinion> GetAllOpinions(int id);
     }
 }
