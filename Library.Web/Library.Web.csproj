@@ -240,6 +240,7 @@
     <Content Include="Views\Restaurants\Details.cshtml" />
     <Content Include="Views\Restaurants\IndexOpinion.cshtml" />
     <Content Include="Views\Opinions\Index.cshtml" />
+    <Content Include="Views\Opinions\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

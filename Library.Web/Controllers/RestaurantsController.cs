@@ -83,6 +83,7 @@ namespace Library.Web.Controllers
         {
             var viewModel = new OpinionFormViewModel
             {
+                Restaurant = db.Get(id),
                 Opinions = db.GetAllOpinions(id).ToList(),
             };
             return View(viewModel);

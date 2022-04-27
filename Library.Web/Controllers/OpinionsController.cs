@@ -1,9 +1,11 @@
 ﻿using Library.Data.Services;
+using Library.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Library.Web.ViewModels;
 
 namespace Library.Web.Controllers
 {
@@ -14,10 +16,51 @@ namespace Library.Web.Controllers
         {
             this.db = db;
         }
-        public ActionResult Index(int id)
+        [HttpGet]
+        public ActionResult Create(int id)
         {
-            var model = db.GetAll(id);
-            return View(model);
+            var opinion = new Opinion
+            {
+                RestaurantId = id
+            };
+            return View(opinion);
         }
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Create(OpinionFormViewModel viewModel)
+        {
+            var opinion = new Opinion
+            {
+                Title = viewModel.Title,
+                Text = viewModel.Text,
+                Who = viewModel.Who,
+                GradeFood = viewModel.GradeFood,
+                GradeDrink = viewModel.GradeDrink,
+                RestaurantId = viewModel.RestaurantId
+            };
+
+            if (ModelState.IsValid)
+            {
+                db.Add(opinion);
+                return RedirectToAction(
+                    actionName: "IndexOpinion",
+                    controllerName: "Restaurants",
+                    routeValues: new { id = viewModel.RestaurantId }
+                    );
+
+            }
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Delete(int id, int idRestaurant, FormCollection form)
+        {
+            var restaurant = db.GetRestaurant(idRestaurant);
+            db.Delete(id);
+            return RedirectToAction(
+                actionName: "IndexOpinion",
+                controllerName: "Restaurants",
+                routeValues: new { id = restaurant.Id }
+                );
+        }
+
     }
 }

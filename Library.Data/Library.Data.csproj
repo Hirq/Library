@@ -171,6 +171,10 @@
     <Compile Include="Migrations\202204261315078_OpionionModel.designer.cs">
       <DependentUpon>202204261315078_OpionionModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204271138297_upgrade Opinion Model.cs" />
+    <Compile Include="Migrations\202204271138297_upgrade Opinion Model.designer.cs">
+      <DependentUpon>202204271138297_upgrade Opinion Model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BookType.cs" />
     <Compile Include="Models\Opinion.cs" />
@@ -235,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204261315078_OpionionModel.resx">
       <DependentUpon>202204261315078_OpionionModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271138297_upgrade Opinion Model.resx">
+      <DependentUpon>202204271138297_upgrade Opinion Model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
