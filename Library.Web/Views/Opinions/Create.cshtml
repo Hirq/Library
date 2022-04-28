@@ -1,12 +1,11 @@
 ﻿@model Library.Data.Models.Opinion
 @*@model Library.Web.ViewModels.OpinionFormViewModel*@
 
-@Model.RestaurantId
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal">
-        <h4>Opinion</h4>
+        <h4>Opinion @Model.Restaurant.Name  </h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

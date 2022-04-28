@@ -8,6 +8,18 @@
             routeValues: new { id = @Model.Restaurant.Id },
             htmlAttributes: null)
 </p>
+
+@{
+    double SumGradeFood = 0;
+    double SumGradeDrink = 0;
+
+}
+@foreach (var item in Model.Opinions)
+{
+    SumGradeFood += item.GradeFood;
+    SumGradeDrink += item.GradeDrink;
+}
+
 @Model.Restaurant.Name
 <table class="table">
     <tr>
@@ -18,7 +30,13 @@
             @Html.DisplayNameFor(model => model.Text)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.RestaurantId)
+            @Html.DisplayNameFor(model => model.Who)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GradeFood)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GradeDrink)
         </th>
         <th></th>
     </tr>
@@ -33,25 +51,45 @@
                 @Html.DisplayFor(modelItem => item.Text)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RestaurantId)
+                @Html.DisplayFor(modelItem => item.Who)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-
-                @using (Html.BeginForm(
-                    actionName: "Delete",
-                    controllerName: "Opinions",
-                    routeValues: new { id = item.Id, idRestaurant = @Model.Restaurant.Id },
-                    method: FormMethod.Post))
-                {
+                @Html.DisplayFor(modelItem => item.GradeFood)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GradeDrink)
+            </td>
+            <td>
+                <div id="buttonDelete">
+                    @using (Html.BeginForm(
+                        actionName: "Delete",
+                        controllerName: "Opinions",
+                        routeValues: new { id = item.Id, idRestaurant = @Model.Restaurant.Id },
+                        method: FormMethod.Post
+                    ))
+                    {
                         @Html.AntiForgeryToken()
-                        <div class="form-actions no-color">
-                            <input type="submit" value="Delete" class="btn btn-danger" /> |
-                        </div>
+                        <input type="submit" value="Delete" class="btn btn-danger" />
                     }
+                </div>
+
             </td>
         </tr>
     }
+    <tr>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+            @String.Format("{0:0.00}", (SumGradeFood / Model.Opinions.Count()))
+        </td>
+        <td>
+            @String.Format("{0:0.00}", (SumGradeDrink / Model.Opinions.Count()))
+        </td>
+        <td>
+        </td>
+    </tr>
 </table>

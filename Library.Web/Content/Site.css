@@ -47,3 +47,8 @@ a:hover, a:focus {
     color: white;
     text-decoration: underline;
 }
+
+/* OPINION */
+#buttonDelete{
+    display: inline-block;
+}

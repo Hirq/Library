@@ -19,9 +19,11 @@ namespace Library.Web.Controllers
         [HttpGet]
         public ActionResult Create(int id)
         {
+            var restaurant = db.GetRestaurant(id);
             var opinion = new Opinion
             {
-                RestaurantId = id
+                RestaurantId = id,
+                Restaurant = restaurant
             };
             return View(opinion);
         }
