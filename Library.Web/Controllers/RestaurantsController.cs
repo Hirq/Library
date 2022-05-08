@@ -18,8 +18,12 @@ namespace Library.Web.Controllers
         }
         public ActionResult Index()
         {
-            var model = db.GetAll();
-            return View(model);
+            var viewModel = new OpinionFormViewModel
+            {
+                Restaurants = db.GetAll(),
+                //Restaurant = db.GetAll().First(),
+            };
+            return View(viewModel);
         }
         public ActionResult Details(int id)
         {

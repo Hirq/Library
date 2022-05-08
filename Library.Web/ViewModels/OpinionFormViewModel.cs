@@ -13,8 +13,11 @@ namespace Library.Web.ViewModels
         public string Who { get; set; }
         public double GradeFood  { get; set; }
         public double GradeDrink  { get; set; }
+        public double AverageGradeFood  { get; set; }
+        public double AverageGradeDrink { get; set; }
         public int RestaurantId { get; set; }
         public Restaurant Restaurant { get; set; }
+        public IEnumerable<Restaurant> Restaurants { get; set; }
         public IEnumerable<Opinion> Opinions { get; set; }
     }
 }
