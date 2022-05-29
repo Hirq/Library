@@ -13,7 +13,7 @@ namespace Library.Data.Services.Interfaces
         void Add(Book book);    
         void Update(Book book); 
         void Delete(int id);
-
+        int Count();
         Rental GetRental(int id);
 
     }

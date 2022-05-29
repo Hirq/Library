@@ -27,6 +27,11 @@ namespace Library.Data.Services
             book.Id = books.Max(b => b.Id) + 1;
         }
 
+        public int Count()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Delete(int id)
         {
             var book = Get(id);

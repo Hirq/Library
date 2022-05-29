@@ -23,6 +23,11 @@ namespace Library.Data.Services
             db.SaveChanges();
         }
 
+        public int Count()
+        {
+            return db.Books.Count();
+        }
+
         public void Delete(int id)
         {
             var book = db.Books.Find(id);
@@ -52,5 +57,7 @@ namespace Library.Data.Services
             entry.State = EntityState.Modified;
             db.SaveChanges();
         }
+
+
     }
 }

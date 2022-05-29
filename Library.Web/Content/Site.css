@@ -1,8 +1,14 @@
-﻿body {
+﻿:root {
+    --background: #7b59b9;
+    --font: #ffffff;
+    --hover_table: #906dcf;
+}
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: #7b59b9;
-    color: white;
+    background-color: var(--background);
+    color: var(--font);
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -51,4 +57,8 @@ a:hover, a:focus {
 /* OPINION */
 #buttonDelete{
     display: inline-block;
+}
+
+table.table_main tr:hover td {
+    background-color: var(--hover_table);
 }

@@ -20,7 +20,11 @@ namespace Library.Web.Controllers
         }
         public ActionResult Index()
         {
-            var model = db.GetAll();
+            var model = new BookListViewModel
+            {
+                Books = db.GetAll(),
+                CountBooks = db.Count()
+            };
             return View(model);
         }
 
@@ -69,7 +73,22 @@ namespace Library.Web.Controllers
         [HttpGet]
         public ActionResult Update(int id)
         {
-            var model = db.Get(id);
+            var book = db.Get(id);
+            var rental = db.GetRental(id);
+
+            var model = new BookViewModel
+            {
+                Id = book.Id,
+                Name = book.Name,
+                Autor = book.Autor,
+                IsRental = book.IsRental,
+            };
+            if (rental != null)
+            {
+                model.Person = rental.Person;
+                model.Date = rental.Date;
+            };
+
             return View(model);
         }
 

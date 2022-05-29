@@ -1,8 +1,9 @@
-﻿@model Library.Data.Models.Book
+﻿@model Library.Web.Models.BookViewModel
 
 @{
     ViewBag.Title = "Update";
 }
+
 
 <h2>Update</h2>
 
@@ -40,7 +41,7 @@
             </div>
         </div>
 
-        @*<div id="ShowHideMe" style="display:none">
+        <div id="ShowHideMe" style="display:none">
             <div class="form-group">
                 @Html.LabelFor(model => model.Person, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -52,11 +53,11 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.TextBoxFor(m => m.Date, new { @class = "input-large", @Value = @DateTime.Now.ToShortDateString() })
+                    @Html.TextBoxFor(m => m.Date, new { @class = "form-control", @Value = Model.Date.ToShortDateString() })
                     @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
                 </div>
             </div>
-        </div>*@
+        </div>
 
 
 
@@ -67,16 +68,19 @@
         </div>
     </div>
 }
+@using (Html.BeginForm("Delete", "Books", new { id = @Model.Id }))
+{
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-danger" /> 
+    </div>
+}
+<button class="btn btn-info"> @Html.ActionLink("Back to List", "Index") </button>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.0/jquery.min.js"></script>
-@*<script>
+<script>
     $(function () {
-        $('#IsRental').change(function ()
-        {
+        $('#IsRental').change(function () {
             if (document.querySelector('#IsRental').checked) {
                 document.querySelector('#ShowHideMe').style.display = '';
                 document.querySelector('#Person').value = '';
@@ -91,9 +95,8 @@
     });
 
     $(function () {
-        if (document.querySelector('#IsRental').checked)
-        {
+        if (document.querySelector('#IsRental').checked) {
             document.querySelector('#ShowHideMe').style.display = '';
         }
     });
-</script>*@
+</script>
