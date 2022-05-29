@@ -1,5 +1,4 @@
-﻿@model Library.Web.ViewModels.RentalFormViewModel 
-
+﻿@model Library.Web.Models.RentalFormViewModel
 @{
     ViewBag.Title = "Create";
 }
@@ -13,6 +12,7 @@
 <div class="form-horizontal">
     <h4>Rental</h4>
     <hr />
+
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(model => model.Person, htmlAttributes: new { @class = "control-label col-md-2" })

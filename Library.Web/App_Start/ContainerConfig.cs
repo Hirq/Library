@@ -2,10 +2,7 @@
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
 using Library.Data.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using Library.Data.Services.Interfaces;
 using System.Web.Http;
 using System.Web.Mvc;
 

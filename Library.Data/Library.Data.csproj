@@ -176,18 +176,18 @@
       <DependentUpon>202204271138297_upgrade Opinion Model.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\BookType.cs" />
+    <Compile Include="Models\Enum\BookType.cs" />
     <Compile Include="Models\Opinion.cs" />
-    <Compile Include="Models\RestaurationType.cs" />
+    <Compile Include="Models\Enum\RestaurationType.cs" />
     <Compile Include="Models\Rental.cs" />
     <Compile Include="Models\Restaurant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\IBookData.cs" />
-    <Compile Include="Services\InMemoryBookData.cs" />
-    <Compile Include="Services\IOpinionData.cs" />
-    <Compile Include="Services\IRentalData.cs" />
-    <Compile Include="Services\IRestaurantData.cs" />
-    <Compile Include="Services\LibraryDbContext.cs" />
+    <Compile Include="Services\Interfaces\IBookData.cs" />
+    <Compile Include="Services\InMemory\InMemoryBookData.cs" />
+    <Compile Include="Services\Interfaces\IOpinionData.cs" />
+    <Compile Include="Services\Interfaces\IRentalData.cs" />
+    <Compile Include="Services\Interfaces\IRestaurantData.cs" />
+    <Compile Include="Services\DbContext\LibraryDbContext.cs" />
     <Compile Include="Services\SqlBookData.cs" />
     <Compile Include="Services\SqlOpinionData.cs" />
     <Compile Include="Services\SqlRentalData.cs" />

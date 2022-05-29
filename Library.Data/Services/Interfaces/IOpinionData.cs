@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.Data.Services
+namespace Library.Data.Services.Interfaces
 {
     public interface IOpinionData
     {

@@ -8,29 +8,22 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Books", "Index", "Books")</li>
-                    <li>@Html.ActionLink("Rental", "Index", "Rentals")</li>
-                    <li>@Html.ActionLink("Restaurant", "Index", "Restaurants")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
+            <div class="navbar navbar-inverse navbar-fixed-down">
+                <div class="container">
+                    <div class="navbar-collapse collapse menu">
+                        <ul>
+                            <li class="HomeNavigationButton"> @Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                            <li class="HomeNavigationButton"> @Html.ActionLink("Books", "Index", "Books", new { area = "" }, new { @class = "navbar-brand" })</li>
+                            <li class="HomeNavigationButton"> @Html.ActionLink("Rental", "Index", "Rentals", new { area = "" }, new { @class = "navbar-brand" })</li>
+                            <li class="HomeNavigationButton"> @Html.ActionLink("Restaurant", "Index", "Restaurants", new { area = "" }, new { @class = "navbar-brand" })</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
 
@@ -39,3 +32,31 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+
+<style>
+    footer{
+        position: absolute;
+        bottom:  0;
+    }
+    .navbar{
+        margin-bottom: 0px;
+    }
+    .navbar > .container .navbar-brand {
+        margin-left: 0px;
+    }
+    .HomeNavigationButton {
+        padding: 10px;
+        border-radius: 25px;
+        margin-left: 10px;
+    }
+    .menu > ul
+    {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 -10px;
+    }
+
+</style>

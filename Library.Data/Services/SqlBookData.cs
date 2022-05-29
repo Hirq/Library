@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using Library.Data.Services.Interfaces;
 
 namespace Library.Data.Services
 {

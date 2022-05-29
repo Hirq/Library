@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.Data.Models
+namespace Library.Data.Models.Enum
 {
     public enum BookType
     {
