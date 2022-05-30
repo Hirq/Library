@@ -12,26 +12,30 @@ namespace Library.Web.Controllers
 
     public class RentalsController : Controller
     {
-        private readonly IRentalData db;
-        public RentalsController(IRentalData db)
+        private readonly IRentalData _rentalService;
+        private readonly IBookData _bookService;
+
+        public RentalsController(IRentalData rentalService, IBookData bookService)
         {
-            this.db = db;
+            _rentalService = rentalService;
+            _bookService = bookService;
         }
         public ActionResult Index()
         {
-            var viewModel = new RentalFormViewModel
+            var model = new RentalListViewModel
             {
-                Books = db.GetAllBooks().ToList(),
-                Rentals = db.GetAllRentals().ToList(),
+                Rentals = _rentalService.GetAllRentals().ToList(),
+                CountBooks = _bookService.Count(),
+                CountRentals = _rentalService.Count(),
+                
             };
-            return View(viewModel);
-            //var model = db.GetAllRentals();
-            //return View(model);
+            return View(model);
+
         }        
 
         public ActionResult Details(int id)
         {
-            var model = db.Get(id);
+            var model = _rentalService.Get(id);
             if (model == null)
             {
                 return View("NotFound");
@@ -41,29 +45,29 @@ namespace Library.Web.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            var viewModel = new RentalFormViewModel
+            var model = new RentalFormViewModel
             {
-                Books = db.GetAllBooks().ToList()
+                Books = _rentalService.GetAllBooksNotRental().ToList()
             };
-            return View(viewModel);
+            return View(model);
         }
         [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult Create(RentalFormViewModel viewModel)
+        public ActionResult Create(RentalFormViewModel model)
         {
-            var selectBook = db.GetBook(viewModel.Book);
+            var selectBook = _rentalService.GetBook(model.Book);
             selectBook.IsRental = true;
 
             var rental = new Rental
             {
-                Person = viewModel.Person,
-                Date = viewModel.Date,
-                BookID = viewModel.Book
+                Person = model.Person,
+                Date = model.Date,
+                BookID = model.Book
             };
 
             if (ModelState.IsValid)
             {
-                db.Add(rental);
-                db.UpdateBook(selectBook);
+                _rentalService.Add(rental);
+                _rentalService.UpdateBook(selectBook);
                 return RedirectToAction("Index");
             }
             return View();
@@ -72,7 +76,7 @@ namespace Library.Web.Controllers
         [HttpGet]
         public ActionResult Update(int id)
         {
-            var model = db.Get(id);
+            var model = _rentalService.Get(id);
             return View(model);
         }
         [HttpPost, ValidateAntiForgeryToken]
@@ -80,7 +84,7 @@ namespace Library.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Update(rental);
+                _rentalService.Update(rental);
                 return RedirectToAction("Details", new { id = rental.Id});
             }
             return View();
@@ -88,18 +92,18 @@ namespace Library.Web.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            var model = db.Get(id);
+            var model = _rentalService.Get(id);
             return View(model);
         }
         [HttpPost]
         public ActionResult Delete(int id, FormCollection form)
         {
-            var rental = db.Get(id);
-            var selectBook = db.GetBook(rental.BookID);
+            var rental = _rentalService.Get(id);
+            var selectBook = _rentalService.GetBook(rental.BookID);
             selectBook.IsRental = false;
 
-            db.Delete(id);
-            db.UpdateBook(selectBook);
+            _rentalService.Delete(id);
+            _rentalService.UpdateBook(selectBook);
             return RedirectToAction("Index");
         }
         

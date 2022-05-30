@@ -54,11 +54,23 @@ a:hover, a:focus {
     text-decoration: underline;
 }
 
+/* UPDATE */
+.buttons-inline-haed{
+    display: flex;
+}
+
+.buttons-inline-head-inside{
+    margin-left: auto;
+}
 /* OPINION */
-#buttonDelete{
+#buttonDelete {
     display: inline-block;
 }
 
 table.table_main tr:hover td {
     background-color: var(--hover_table);
+}
+
+.create-title{
+    font-size: 20px;
 }

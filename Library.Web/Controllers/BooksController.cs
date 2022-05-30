@@ -12,18 +12,19 @@ namespace Library.Web.Controllers
 {
     public class BooksController : Controller
     {
-        private readonly IBookData db;
-        public BooksController(IBookData db)
+
+        private readonly IBookData _bookService;
+        public BooksController(IBookData bookService)
         {
             //db = new InMemoryBookData(); // nie dziala wtedy obsługa create,delete,udpate, bo po kazdej akcji zwracalo nowa liste.
-            this.db = db;
+            this._bookService = bookService;
         }
         public ActionResult Index()
         {
             var model = new BookListViewModel
             {
-                Books = db.GetAll(),
-                CountBooks = db.Count()
+                Books = _bookService.GetAll(),
+                CountBooks = _bookService.Count()
             };
             return View(model);
         }
@@ -31,14 +32,14 @@ namespace Library.Web.Controllers
         [HttpGet]
         public ActionResult RentalList()
         {
-            var model = db.GetAll();
+            var model = _bookService.GetAll();
             return View(model);
         }
 
         public ActionResult Details(int id)
         {
-            var book = db.Get(id);
-            var rental = db.GetRental(book.Id);
+            var book = _bookService.Get(id);
+            var rental = _bookService.GetRental(book.Id);
             if (book == null)
             {
                 return View("NotFound");
@@ -64,7 +65,7 @@ namespace Library.Web.Controllers
         {
             if(ModelState.IsValid)
             {
-                db.Add(book);
+                _bookService.Add(book);
                 return RedirectToAction("Index");
             }
             return View("Index");
@@ -73,8 +74,8 @@ namespace Library.Web.Controllers
         [HttpGet]
         public ActionResult Update(int id)
         {
-            var book = db.Get(id);
-            var rental = db.GetRental(id);
+            var book = _bookService.Get(id);
+            var rental = _bookService.GetRental(id);
 
             var model = new BookViewModel
             {
@@ -98,7 +99,7 @@ namespace Library.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Update(book);
+                _bookService.Update(book);
                 return RedirectToAction("Details", new { id = book.Id });
             }
             return View();
@@ -107,7 +108,7 @@ namespace Library.Web.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            var model = db.Get(id);
+            var model = _bookService.Get(id);
             if(model == null)
             {
                 return View("NotFound");
@@ -118,7 +119,7 @@ namespace Library.Web.Controllers
         [HttpPost]
         public ActionResult Delete(int id, FormCollection form)
         {
-            db.Delete(id);
+            _bookService.Delete(id);
             return RedirectToAction("Index");
         }
 

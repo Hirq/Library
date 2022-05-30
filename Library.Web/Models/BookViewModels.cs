@@ -22,6 +22,18 @@ namespace Library.Web.Models
         public int CountBooks { get; set; }
     }
 
+    public class RentalListViewModel
+    {
+        public IEnumerable<Rental> Rentals { get; set; }  
+        public int CountRentals { get; set; }
+        public int CountBooks { get; set; }
+    }
+
+
+
+
+
+
     public class RentalFormViewModel
     {
         public string Person { get; set; }

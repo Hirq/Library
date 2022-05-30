@@ -40,7 +40,7 @@ namespace Library.Data.Services
                    select rental;
         }
 
-        public IEnumerable<Book> GetAllBooks()
+        public IEnumerable<Book> GetAllBooksNotRental()
         {
             return from book in db.Books
                    where book.IsRental == false
@@ -64,6 +64,11 @@ namespace Library.Data.Services
             var entry = db.Entry(book);
             entry.State = EntityState.Modified;
             db.SaveChanges();
+        }
+
+        public int Count()
+        {
+            return db.Rentals.Count();
         }
     }
 }

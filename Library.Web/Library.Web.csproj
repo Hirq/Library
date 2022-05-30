@@ -227,10 +227,7 @@
     <Content Include="Views\Books\Create.cshtml" />
     <Content Include="Views\Books\Update.cshtml" />
     <Content Include="Views\Rentals\Index.cshtml" />
-    <Content Include="Views\Rentals\Details.cshtml" />
     <Content Include="Views\Rentals\Create.cshtml" />
-    <Content Include="Views\Rentals\Update.cshtml" />
-    <Content Include="Views\Rentals\Delete.cshtml" />
     <Content Include="Views\Restaurants\Index.cshtml" />
     <Content Include="Views\Restaurants\Create.cshtml" />
     <Content Include="Views\Restaurants\Update.cshtml" />

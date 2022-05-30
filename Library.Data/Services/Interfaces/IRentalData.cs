@@ -14,9 +14,10 @@ namespace Library.Data.Services.Interfaces
         void Add(Rental rental);
         void Update(Rental rental);
         void Delete(int id);
-        IEnumerable<Book> GetAllBooks();
+        IEnumerable<Book> GetAllBooksNotRental();
         Book GetBook(int id);
         void UpdateBook(Book book);
+        int Count();
 
     }
 }
