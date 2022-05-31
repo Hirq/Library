@@ -9,7 +9,7 @@
 
 <h2>Create</h2>
 <div class="buttons-inline-haed">
-    <button type="button" class="btn btn-warning"> @Html.ActionLink("Create", "Create") </button>
+    <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Create", "Books")'"> Create </button>
     <div class="buttons-inline-head-inside">
         <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Index", "Rentals")'"> Rental List </button>
     </div>
@@ -23,16 +23,22 @@
         <th>
             Autor
         </th>
+        <th>
+            Type
+        </th>
     </tr>
 
     @foreach (var book in @Model.Books)
     {
-        <tr class="" onclick="location.href='@Url.Action("Update", "Books", new { id = book.Id })'">
+        <tr onclick="location.href='@Url.Action("Update", "Books", new { id = book.Id })'">
             <td>
                 @Html.DisplayFor(modelItem => book.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => book.Autor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => book.TypeBook)
             </td>
         </tr>
     }

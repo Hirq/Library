@@ -1,4 +1,5 @@
 ﻿using Library.Data.Models;
+using Library.Data.Models.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace Library.Web.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Autor { get; set; }
+        public BookType TypeBook { get; set; }
         public bool IsRental { get; set; }
         public string Person { get; set; }
         public DateTime Date { get; set; }

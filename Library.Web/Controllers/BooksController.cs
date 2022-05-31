@@ -83,6 +83,7 @@ namespace Library.Web.Controllers
                 Name = book.Name,
                 Autor = book.Autor,
                 IsRental = book.IsRental,
+                TypeBook = book.TypeBook,
             };
             if (rental != null)
             {
@@ -95,12 +96,19 @@ namespace Library.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Update(Book book)
+        public ActionResult Update(BookViewModel model)
         {
+            Book book = new Book
+            {
+                Id = model.Id,
+                Name = model.Name,
+                Autor = model.Autor,
+                TypeBook= model.TypeBook,
+            };
             if (ModelState.IsValid)
             {
                 _bookService.Update(book);
-                return RedirectToAction("Details", new { id = book.Id });
+                return RedirectToAction("Index", "Books");
             }
             return View();
         }

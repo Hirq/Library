@@ -1,12 +1,18 @@
 ﻿@model Library.Data.Models.Restaurant
 
-@using (Html.BeginForm()) 
+<div class="buttons-inline-haed">
+    <div class="create-title"> Create Restaurant </div>
+    <div class="buttons-inline-head-inside">
+        <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Index", "Restaurants")'"> Back to List </button>
+    </div>
+</div>
+<hr />
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Restaurant</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -27,7 +33,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.RestaurantType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.RestaurantType)
+                @Html.EnumDropDownListFor(model => model.RestaurantType, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.RestaurantType, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -39,7 +45,3 @@
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

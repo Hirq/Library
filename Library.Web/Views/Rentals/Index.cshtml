@@ -5,11 +5,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Rental List</h2>
+<h2>Rental List: @Model.CountRentals</h2>
 
 @if (@Model.CountBooks - @Model.CountRentals > 0)
 {
-    <button type="button" class="btn btn-warning"> @Html.ActionLink("Create", "Create") </button>
+    <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Create","Rentals")'"> Create </button>
 }
 
 <table class="table">
@@ -33,7 +33,7 @@
                 @Html.DisplayFor(modelItem => rental.Person)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => rental.Date)
+                @Convert.ToDateTime(rental.Date).ToString("dd/MM/yyyy")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => rental.Book.Name)

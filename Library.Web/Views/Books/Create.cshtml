@@ -7,7 +7,7 @@
 <div class="buttons-inline-haed">
     <div class="create-title"> Create Book</div>
     <div class="buttons-inline-head-inside">
-        <button type="button" class="btn btn-info"> @Html.ActionLink("Back to List", "Index") </button>
+        <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Index", "Books")'"> Back to List </button>
     </div>
 </div>
 <hr />
@@ -38,7 +38,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TypeBook, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.TypeBook)
+                @Html.EnumDropDownListFor(model => model.TypeBook, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.TypeBook, "", new { @class = "text-danger" })
             </div>
         </div>

@@ -59,7 +59,7 @@ namespace Library.Web.Controllers
             if (ModelState.IsValid)
             {
                 db.Update(restaurant);
-                return RedirectToAction("Details", new { id = restaurant.Id });
+                return RedirectToAction("Index", "Restaurants");
             }
             return View();
         }

@@ -6,7 +6,7 @@
 <div class="buttons-inline-haed">
     <div class="create-title"> Create Rental</div>
     <div class="buttons-inline-head-inside">
-        <button type="button" class="btn btn-info"> @Html.ActionLink("Back to List", "Index") </button>
+        <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Index", "Rentals")'"> Back to List </button>
     </div>
 </div>
 
@@ -47,7 +47,3 @@
     </div>
 </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

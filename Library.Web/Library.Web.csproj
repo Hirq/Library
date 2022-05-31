@@ -231,8 +231,6 @@
     <Content Include="Views\Restaurants\Index.cshtml" />
     <Content Include="Views\Restaurants\Create.cshtml" />
     <Content Include="Views\Restaurants\Update.cshtml" />
-    <Content Include="Views\Restaurants\Delete.cshtml" />
-    <Content Include="Views\Restaurants\Details.cshtml" />
     <Content Include="Views\Restaurants\IndexOpinion.cshtml" />
     <Content Include="Views\Opinions\Index.cshtml" />
     <Content Include="Views\Opinions\Create.cshtml" />
