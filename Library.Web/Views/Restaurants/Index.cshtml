@@ -2,25 +2,29 @@
 
 <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Create","Restaurants")'"> Add restaurant </button>
 
-<table class="table table_main">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Restaurant.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Restaurant.Location)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Restaurant.RestaurantType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AverageGradeFood)
-        </th>
-    </tr>
-
+<table class="table ">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restaurant.RestaurantType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AverageGradeFood)
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
     @foreach (var restaurant in Model.Restaurants)
     {
-        <tr onclick="location.href='@Url.Action("Update", "Restaurants", new { id = restaurant.Id })'">
+        <tr>
             <td>
                 @Html.DisplayFor(item => restaurant.Name)
             </td>
@@ -33,12 +37,11 @@
             <td>
                 @Html.DisplayFor(item => @Model.AverageGradeFood)
             </td>
-        </tr>
-        <tr>
+
             <td>
+                <button type="button" class="btn btn-primary" onclick="location.href = '@Url.Action("Update", "Restaurants", new { id = restaurant.Id })'"> Edit </button>
                 <button type="button" class="btn btn-success" onclick="location.href = '@Url.Action("IndexOpinion", "Restaurants", new { id = restaurant.Id })'"> Opinion </button>
             </td>
         </tr>
     }
-
 </table>

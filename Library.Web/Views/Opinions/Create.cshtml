@@ -1,10 +1,17 @@
 ﻿@model Library.Data.Models.Opinion
 
+<div class="buttons-inline-haed">
+    <div class="create-title"> Opinion @Model.Restaurant.Name </div>
+    <div class="buttons-inline-head-inside">
+        <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("IndexOpinion", "Restaurants", new { id = @Model.RestaurantId })'"> Back to List </button>
+    </div>
+</div>
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal">
-        <h4>Opinion @Model.Restaurant.Name  </h4>
+        
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -53,12 +60,8 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-warning" />
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

@@ -1,14 +1,4 @@
 ﻿@model Library.Web.Models.OpinionFormViewModel
-
-<p>
-    @Html.ActionLink(
-            linkText: "Create",
-            actionName: "Create",
-            controllerName: "Opinions",
-            routeValues: new { id = @Model.Restaurant.Id },
-            htmlAttributes: null)
-</p>
-
 @{
     double SumGradeFood = 0;
     double SumGradeDrink = 0;
@@ -19,6 +9,14 @@
     SumGradeFood += item.GradeFood;
     SumGradeDrink += item.GradeDrink;
 }
+
+<div class="buttons-inline-haed">
+    <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Create", "Opinions", new {id = @Model.Restaurant.Id} )'"> Create </button>
+    <div class="buttons-inline-head-inside">
+        <button type="button" class="btn btn-info" onclick="location.href='@Url.Action("Index", "Restaurants")'"> Restaurant List </button>
+    </div>
+</div>
+
 
 @Model.Restaurant.Name
 <table class="table">
@@ -76,20 +74,26 @@
             </td>
         </tr>
     }
-    <tr>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-        </td>
-        <td>
-            @String.Format("{0:0.00}", (SumGradeFood / Model.Opinions.Count()))
-        </td>
-        <td>
-            @String.Format("{0:0.00}", (SumGradeDrink / Model.Opinions.Count()))
-        </td>
-        <td>
-        </td>
-    </tr>
+
+
+    @if (@Model.Opinions.Count() > 0) // average under table
+    {
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                @String.Format("{0:0.00}", (SumGradeFood / Model.Opinions.Count()))
+            </td>
+            <td>
+                @String.Format("{0:0.00}", (SumGradeDrink / Model.Opinions.Count()))
+            </td>
+            <td>
+            </td>
+        </tr>
+    }
+
 </table>
